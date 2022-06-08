@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "pypack"
+version = "0.1.0"
+description = "Python package starter template."
+authors = ["MagicalLiebe <magical.liebe@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8,<3.11"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.3.0"
+flake8-isort = "^4.1.1"
+flake8-annotations = "^2.9.0"
+flake8-mypy = "^17.8.0"
+flake8-docstrings = "^1.6.0"
+pytest = "^7.1.2"
+pytest-sugar = "^0.9.4"
+pytest-cov = "^3.0.0"
+poethepoet = "^0.13.1"
+pyproject-flake8 = "^0.0.1a4"
+
+[tool.poe.tasks]
+
+[tool.poe.tasks.lint]
+help = "Run flake8 on the code base"
+cmd = "pflake8 pypack/*.py"
+
+[tool.poe.tasks.format]
+help = "Run black on the code base"
+cmd  = "black ."
+
+[tool.poe.tasks.test]
+help = "Run unit and feature tests"
+cmd = "pytest -v --cov pypack --cov-report term-missing"
+
+[tool.black]
+line-length = 120
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = "E203,W503,W504"
+max-complexity = 10
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
