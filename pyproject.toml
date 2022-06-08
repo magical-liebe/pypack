@@ -28,7 +28,7 @@ cmd = "pflake8 pypack/*.py"
 
 [tool.poe.tasks.format]
 help = "Run black on the code base"
-cmd  = "black ."
+cmd  = "black pypack/*.py"
 
 [tool.poe.tasks.test]
 help = "Run unit and feature tests"
@@ -39,7 +39,7 @@ line-length = 120
 
 [tool.flake8]
 max-line-length = 120
-extend-ignore = "E203,W503,W504"
+extend-ignore = "E203,W503,W504,ANN101"
 max-complexity = 10
 
 [tool.mypy]
