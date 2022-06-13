@@ -1,40 +1,50 @@
 [tool.poetry]
 name = "pypack"
 version = "0.1.0"
-description = "Python package starter template."
+description = "Python Package Starter Template."
 authors = ["MagicalLiebe <magical.liebe@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8,<3.11"
+single-source = "^0.3.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.3.0"
+pyproject-flake8 = "^0.0.1a4"
 flake8-isort = "^4.1.1"
 flake8-annotations = "^2.9.0"
-flake8-mypy = "^17.8.0"
 flake8-docstrings = "^1.6.0"
+mypy = "^0.961"
 pytest = "^7.1.2"
 pytest-sugar = "^0.9.4"
 pytest-cov = "^3.0.0"
 poethepoet = "^0.13.1"
-pyproject-flake8 = "^0.0.1a4"
+pre-commit = "^2.19.0"
+
+[tool.poe.env]
+package = "dezero"
 
 [tool.poe.tasks]
+    [tool.poe.tasks.run]
+    help = "Run Python"
+    cmd = "python"
+    [tool.poe.tasks.lint]
+    help = "Run flake8 on the code base"
+    sequence = [
+        {cmd = "pflake8 ${package}/*.py tests/*.py"},
+        {cmd = "mypy ${package}/*.py tests/*.py"},
+    ]
+    [tool.poe.tasks.fix]
+    help = "Run black on the code base"
+    cmd  = "black ${package}/*.py tests/*.py"
+    [tool.poe.tasks.test]
+    help = "Run unit and feature tests"
+    cmd = "pytest -v --cov ${package} --cov-report term-missing"
 
-[tool.poe.tasks.lint]
-help = "Run flake8 on the code base"
-cmd = "pflake8 pypack/*.py"
-
-[tool.poe.tasks.format]
-help = "Run black on the code base"
-cmd  = "black pypack/*.py"
-
-[tool.poe.tasks.test]
-help = "Run unit and feature tests"
-cmd = "pytest -v --cov pypack --cov-report term-missing"
 
 [tool.black]
+target-version = ["py38", "py39", "py310"]
 line-length = 120
 
 [tool.flake8]
@@ -43,7 +53,10 @@ extend-ignore = "E203,W503,W504,ANN101"
 max-complexity = 10
 
 [tool.mypy]
+python_version = "3.10"
+no_strict_optional = true
 ignore_missing_imports = true
+check_untyped_defs = true
 
 [tool.isort]
 profile = "black"
