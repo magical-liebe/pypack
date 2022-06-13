@@ -6,7 +6,7 @@ authors = ["MagicalLiebe <magical.liebe@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8,<3.11"
+python = "^3.10,<3.11"
 single-source = "^0.3.0"
 
 [tool.poetry.group.dev.dependencies]
@@ -23,7 +23,7 @@ poethepoet = "^0.13.1"
 pre-commit = "^2.19.0"
 
 [tool.poe.env]
-package = "dezero"
+package = "pypack"
 
 [tool.poe.tasks]
     [tool.poe.tasks.run]
@@ -44,7 +44,7 @@ package = "dezero"
 
 
 [tool.black]
-target-version = ["py38", "py39", "py310"]
+target-version = ["py310"]
 line-length = 120
 
 [tool.flake8]

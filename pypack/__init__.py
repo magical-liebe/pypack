@@ -1,3 +1,7 @@
-"""Python package starter template."""
+"""PyPack: Python Package Starter Template."""
 
-__version__ = "0.1.0"
+from pathlib import Path
+
+from single_source import get_version
+
+__version__ = get_version(__name__, Path(__file__).parent)
