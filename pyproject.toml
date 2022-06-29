@@ -42,7 +42,6 @@ package = "pypack"
     help = "Run unit and feature tests"
     cmd = "pytest -v --cov ${package} --cov-report term-missing"
 
-
 [tool.black]
 target-version = ["py310"]
 line-length = 120
