@@ -10,7 +10,7 @@ python = "^3.10,<3.12"
 single-source = "0.3.0"
 
 [tool.poetry.dev-dependencies]
-black = "23.0.0"
+black = "23.9.1"
 pyproject-flake8 = "6.0.0"
 flake8-isort = "6.0.0"
 flake8-annotations = "3.0.0"
