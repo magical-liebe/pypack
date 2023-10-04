@@ -2,11 +2,11 @@
 name = "pypack"
 version = "0.1.0"
 description = "Python Package Starter Template."
-authors = ["MagicalLiebe <magical.liebe@gmail.com>"]
+authors = ["りーべ <liebe.magi@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10,<3.12"
+python = "^3.10,<3.13"
 single-source = "0.3.0"
 
 [tool.poetry.group.dev.dependencies]
