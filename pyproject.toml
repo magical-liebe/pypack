@@ -19,7 +19,7 @@ mypy = "1.0"
 pytest = "7.4.2"
 pytest-sugar = "0.9.7"
 pytest-cov = "4.1.0"
-poethepoet = "0.24.0"
+poethepoet = "0.24.1"
 pre-commit = "3.4.0"
 
 [tool.poe.env]
