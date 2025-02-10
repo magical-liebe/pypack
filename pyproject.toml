@@ -6,7 +6,7 @@ authors = ["りーべ <liebe.magi@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10,<3.13"
+python = "<3.14"
 single-source = "0.4.0"
 
 [tool.poetry.group.dev.dependencies]
